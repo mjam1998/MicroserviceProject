@@ -1,0 +1,31 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Discount.Grpc.Protos";
+
+service DiscountProtoService{//سرویس شبیه ایتارفیس سی شارپ است
+	rpc GetDiscounrt(GetDiscounrtRequest) returns (CouponModel);
+	rpc CreateDiscount(CreateDiscountRequest) returns (CouponModel);
+	rpc UpdateDiscount(UpdateDiscounRequest) returns (CouponModel);
+	rpc DeleteDiscount(DeleteDiscountRequest) returns (DeleteDiscountResponse);
+}
+message GetDiscounrtRequest{//پیام ها نوعی پروتکل ذخیره دیتا مثل جیسان هستند
+	string productname=1;
+}
+message CouponModel{
+	int32 id=1;//شناسه فیلد در پیام است
+	string productname=2;
+	string description=3;
+	int32 amount=4;
+}
+message CreateDiscountRequest{
+	CouponModel coupon=1;
+}
+message UpdateDiscounRequest{
+	CouponModel coupon=1;
+}
+message DeleteDiscountRequest{
+	string productname=1;
+}
+message DeleteDiscountResponse{
+	bool success=1;
+}
