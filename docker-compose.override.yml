@@ -63,6 +63,7 @@ services:
     - basketdb
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+     
     ports:
       - "8001:80"
 
@@ -77,3 +78,12 @@ services:
     ports:
       - "8002:80"
 
+
+  discount.grpc:
+    container_name: discount.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8003:80"
+    depends_on: 
+      - discountdb
