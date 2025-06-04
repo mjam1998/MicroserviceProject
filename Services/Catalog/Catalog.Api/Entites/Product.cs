@@ -9,7 +9,7 @@ namespace Catalog.Api.Entites
         public string Id { get; set; }
         public string name { get; set; }
         public string catagory { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
 
 
     }
