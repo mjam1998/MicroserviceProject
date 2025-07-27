@@ -2,12 +2,12 @@
 
 using AutoMapper;
 using MediatR;
-using Ordering.Application.Contracts.Persistence;
+using Ordering.Domain.Contracts;
 using Ordering.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ordering.Application.features.Orders.Commands.CheckoutOrder
+namespace Ordering.Application.Features.Orders.Command.CheckoutOrder
 {
     public class CheckoutOrderCommandHandler : IRequestHandler<CheckoutOrderCommand, int>
     {
@@ -22,8 +22,8 @@ namespace Ordering.Application.features.Orders.Commands.CheckoutOrder
 
         public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
-           var orderEntity=_mapper.Map<Order>(request);
-            var newOrder=await _orderRepository.AddAsync(orderEntity);
+            var orderEntity = _mapper.Map<Order>(request);
+            var newOrder=await _orderRepository.AddOrder(orderEntity);
             return newOrder.Id;
         }
     }

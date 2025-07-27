@@ -1,8 +1,8 @@
 ﻿
 
-namespace Ordering.Domain.Entities
+namespace Ordering.Application.Features.Orders.Query
 {
-    public class Order
+    public class OrdersVm
     {
         public int Id { get; set; }
         public string UserName { get; set; }
@@ -10,7 +10,5 @@ namespace Ordering.Domain.Entities
         public string LastName { get; set; }
         public double TotalPrice { get; set; }
         public string City { get; set; }
-
-
     }
 }
